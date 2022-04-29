@@ -1,0 +1,143 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <!-- Page title appears in the browser's tab -->
+        <title>Put your Project Title here!</title>
+
+        <!-- Metadata used by Search Engines -->
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" href="/favicon.ico">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        
+        <!-- Vendor Styles -- Remove any that you do not need -->
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="styles/vendor/jquery-ui-1.10.4.custom.min.css">
+
+        <!-- Custom Styles -->
+        <link rel="stylesheet" href="styles/stylesheets/main.css">
+        
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Disclaimer Modal (the thing that pops down when the page loads, usually used for disclaimers, about sections, etc.) -->
+        <div class="modal fade" id="disclaimer-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Insert Project Title here!</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <!-- Navigation tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#disclaimer-tab" data-toggle="tab">Disclaimer</a></li>
+                            <li><a href="#about-tab" data-toggle="tab">About</a></li>
+                            <li><a href="#contact-tab" data-toggle="tab">Contacts</a></li>
+                            <li><a href="#metadata-tab" data-toggle="tab">Metadata</a></li>
+                            <li><a href="#help-tab" data-toggle="tab">Help</a></li>
+                        </ul>
+
+                        <!-- Tab content -->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="disclaimer-tab">
+                                <p>Privacy, Disclaimer, and Copyright Statement(s)</p>
+                            </div>
+                            <div class="tab-pane" id="about-tab">
+                                <p>Application description/abstract: Include information on why the application was designed, what the applications intended uses are, and what audience it is geared for.</p>
+                            </div>
+                            <div class="tab-pane" id="contact-tab">
+                                <p>Contact information: technical contact and/or project contact, phone numbers and e-mail addresses if applicable, and Agency name.</p>
+                            </div>
+                            <div class="tab-pane" id="metadata-tab">
+                                <p>Links to metadata for data layers that complies with the FWS <a href="http://www.fws.gov/stand/standards/pr_geomet_WWW.html">Geospatial Metadata Standard</a> and includes data identification, data quality, spatial data organization, spatial reference, entities and attributes, distribution, and metadata reference.</p>
+                            </div>
+                            <div class="tab-pane" id="help-tab">
+                                <p>HELP for tools and functions within the site (if applicable)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <!-- End Disclaimer Modal -->
+
+        <!-- Start Header -->
+        <header>
+            <div id="org-bar">
+                <h2>U.S. Fish &amp; Wildlife Service</h2>
+            </div>
+            <div id="title-bar">
+                <h1>Insert title here!</h1>
+            </div>
+            <div id="office-bar">
+                <h3>Division/Office title here!</h3>
+            </div>
+            <a href="http://www.fws.gov/southeast">
+                <!-- You should replace this with the official USFWS logo when posting to fws.gov -->
+                <img id="logo" src="images/usfws-logo.gif" alt="USFWS" title="U.S. Fish &amp; Wildlife Service">
+            </a>
+        </header>
+        <!-- End Header -->
+
+        <!-- Start Sidebar -->
+        <section id="sidebar">
+            <div class="sidebar-title">
+                <h3>Sidebar title here!</h3>
+            </div>
+            <div class="sidebar-content">
+                <p>Sidebar content here!</p>
+                <p>Lorem ipsum dolor sit amet, at his prima autem, sea possim comprehensam ea. Vero ubique ullamcorper mei an. Nec id nullam sententiae, atqui clita referrentur mel ad. Ex per soluta dictas animal, erat ponderum repudiare sit te. Virtute placerat consequuntur in vix. Eu quo meliore appellantur interpretaris, vix summo petentium iracundia ut.</p>
+                <p>Ornatus omittantur ei nec. At mei nullam civibus insolens, euismod insolens ex est. Duo id maiorum praesent quaerendum, volutpat liberavisse vis ea. Est an quidam phaedrum. Eu sumo eros nullam sit.</p>
+                <p>Case augue iusto sea no, ludus ornatus conceptam mei eu, est modo tantas assueverit cu. Option iisque constituto ex eam. Ea vix quod sint probatus, nonumy dolores et mel. Cum ne case labores voluptatum. Elitr admodum epicuri id ius. An per vidit reformidans.</p>
+            </div>
+        </section>
+        <!-- End Sidebar -->
+
+        <!-- Start Map -->
+        <section id="map"></section>
+        <!-- End Map -->
+
+        <!-- Start Footer -->
+        <footer>
+            <div id="links">
+                <a href="http://www.fws.gov">U.S. Fish and Wildlife Service</a> |
+                <a href="http://www.fws.gov/southeast">Southeast Region</a> |
+                <a href="http://www.doi.gov">Department of the Interior</a> |
+                <a href="http://www.usa.gov">USA.gov</a> |
+                <a href="http://www.fws.gov/help/about_us.html">About the Service</a> |
+                <a href="http://www.fws.gov/help/accessibility.html">Accessibility</a> |
+                <a href="http://www.fws.gov/help/policies.html">Privacy</a> |
+                <a href="http://www.fws.gov/help/notices.html">Notices</a> |
+                <a href="http://www.fws.gov/help/disclaimer.html">Disclaimer</a> |
+                <a href="http://www.fws.gov/irm/bpim/foia.html">FOIA</a>
+            </div>
+        </footer>
+        <!-- End Footer -->
+
+
+        <!-- Vendor Scripts -->
+        <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script> <!-- Leaflet Web Mapping Library -->
+        <script src="scripts/vendor/esri-leaflet.js"></script> <!-- Use ESRI Basemaps under ESRI TOS -->
+        <script src="scripts/vendor/leaflet-sidebar.js"></script> <!-- Sidebar plugin for Leaflet -->
+        <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.1.2/leaflet-omnivore.min.js'></script> <!-- Utility library for putting data on a map -->
+        <script src="scripts/vendor/easy-button.js"></script> <!-- Font Awesome Buttons -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> <!-- DOM Utility Library -->
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> <!-- Twitter Bootstrap JavaScript Functions -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script> <!-- JavaScript Utility Library -->
+        <script src="scripts/vendor/jquery-ui-1.10.4.custom.min.js"></script> <!-- Used to make the sidebar resizeable -->
+
+        <!-- Custom Scripts -->
+        <script src="scripts/main.js"></script> <!-- Scripts Specific to this Project -->
+
+</body>
+</html>
