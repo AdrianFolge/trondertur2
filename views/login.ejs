@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <title>Login</title>
+    <style type="text/css">
+        
+        body {
+            margin: 0;
+            padding: 0;
+
+        }
+        body:before {
+            content: '';
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background-image: url("/images/login_bilde.jpeg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            -webkit-background-size: cover;
+            background-size: cover;
+
+        }
+
+
+        
+        .contact-form {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 350px;
+            padding: 80px 40px;
+            background: rgba(0, 0, 0, 0.5);
+            overflow: auto;
+        }
+
+
+
+        .contact-form h1 {
+            margin: 0;
+            padding: 0 0 20px;
+            color: #fff;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .contact-form div {
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+            color: #fff;
+        }
+        .contact-form input {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .contact-form input[type=email], .contact-form input[type=password] {
+            border: none;
+            border-bottom: 1px solid #fff;
+            background: transparent;
+            outline: none;
+            height: 40px;
+            color: #fff;
+            font-size: 16px;
+        }
+        .contact-form input[type=submit] {
+            height: 30px;
+            color: #fff;
+            font-size: 15px;
+            background: red;
+            cursor: pointer;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+            margin-top: 15%;
+        }
+        .contact-form a {
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    
+    </style>
+</head>
+<body>
+    
+        
+        
+        
+
+        <ul>
+            <% if(messages.success_msg) {%>
+            <li><%= messages.success_msg %></li>
+            <% } %>
+        </ul>
+
+        <ul>
+            <% if(messages.error){ %>
+            <li><%= messages.error %></li>
+        <%    } %>
+
+        </ul>
+        <div class="background-image"></div>
+        <div class="contact-form">
+           
+            <form id="form_login" action="/users/login" method="POST">
+            <h1 style="color:blueviolet;">TrønderTur</h1>
+        <div>
+            <input type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required/>
+        </div>
+
+        <div>
+            <input type="password"
+            id="password"
+            name="password"
+            placeholder="password"
+            required/>
+        </div>
+
+
+        <div>
+            <input type="submit" value="Login" style="background-color: blueviolet;"/>
+        </div>
+        <a href="/users/register"> Register</a>
+        </form>
+    </div>
+    
+    
+</body>
+</html>

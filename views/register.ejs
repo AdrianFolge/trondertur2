@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style type="text/css">
+        
+        body {
+            margin: 0;
+            padding: 0;
+            z-index: 1;
+
+        }
+        body:before {
+            content: '';
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background-image: url("/images/login_bilde.jpeg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            -webkit-background-size: cover;
+            background-size: cover;
+            -webkit-filter: blur(10px);
+            -moz-filter: blur(10px);
+            filter: blur(10px);
+
+        }
+
+
+        
+        .contact-form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 450px;
+            padding: 80px 40px;
+            background: rgba(0, 0, 0, 0.5);
+            overflow: auto;
+            z-index: 1000;
+        }
+
+        .contact-form h1 {
+            margin: 0;
+            padding: 0 0 20px;
+            color: #fff;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .contact-form input {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .contact-form input[type=email], .contact-form input[type=password], .contact-form input[type=file], .contact-form input[type=text] {
+            border: none;
+            border-bottom: 1px solid #fff;
+            background: transparent;
+            outline: none;
+            height: 40px;
+            color: #fff;
+            font-size: 16px;
+        }
+        .contact-form input[type=submit] {
+            height: 30px;
+            color: #fff;
+            font-size: 15px;
+            background: red;
+            cursor: pointer;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+            margin-top: 15%;
+        }
+        .contact-form a {
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+<body>
+  
+    
+
+
+   
+    <div class="contact-form">
+        <h1 style="color:blueviolet;">Trøndertur</h1>
+    <form action="/users/register" method="POST" enctype="multipart/form-data">
+    <div>
+        <input type="text" id="name" name="name" placeholder="Name" required/>
+    </div>
+
+    <div>
+        <input type="email"
+        id="email"
+        name="email"
+        placeholder="Email"
+        required/>
+    </div>
+
+    <div>
+        <input type="password"
+        id="password"
+        name="password"
+        placeholder="password"
+        required/>
+    </div>
+
+    <div>
+        <input type="password"
+        id="password2"
+        name="password2"
+        placeholder="Confirm password"
+        required/>
+    </div>
+
+    <div>
+        <input type="file"
+        id="files"
+        name="files"
+        placeholder="PB"
+        required/>
+    </div>
+
+    <div>
+        <input type="submit" value="Register" style="background-color: blueviolet;"/>
+    </div>
+    <a href="/users/login"> Already registered? Login here</a>
+    </form>
+</div>
+
+    
+</body>
+</html>
