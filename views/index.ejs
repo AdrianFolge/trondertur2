@@ -444,6 +444,20 @@ var bussIcon = new LeafIcon({iconUrl: '/images/buss.png'});
 
 
 
+var a = '<%= coords %>';
+var my = a.split(',');
+
+var layerGroup = L.layerGroup().addTo(map);
+for(let i=2; i<my.length; i+=3){
+  icon_url = `/images/${my[i+2]}`;
+  var marker = new L.Marker([parseFloat(my[i]), parseFloat(my[i+1])], {icon: greenIcon});
+  marker.addTo(map);
+  marker.bindPopup(`<img src=${icon_url} height="150px" width="150px"/>`);
+  layerGroup.addLayer(marker);
+}
+
+var overlay = {'Vis': layerGroup};
+L.control.layers(null, overlay, {position: 'topleft'}).addTo(map);
 
 
 
