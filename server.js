@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const { pool } = require("./dbConfig.js");
-//const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const session = require('express-session');
 const flash = require("express-flash");
 const path = require('path')
@@ -184,9 +184,9 @@ app.post('/users/register', upload.single("files") ,async (req, res) =>{
     }else{
         // Form validation has passed
 
-        //await bcrypt.hash(password, 10);
-        //let hashedPassword = await bcrypt.hash(password, 10);
-        let hashedPassword = password;
+        await bcrypt.hash(password, 10);
+        let hashedPassword = await bcrypt.hash(password, 10);
+       
         
         
         pool.query(
