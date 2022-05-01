@@ -15,6 +15,7 @@
   <script src="/busstopp_geojson.js"></script>
   <script src="/turstier_geojson.js"></script>
   <script src="/busstopp_geojson.js"></script>
+  
   <!-- <script src="/server.js"></script> -->
 
   <!-- Position the map and title with Cascading Style Sheet (CSS) -->
@@ -115,35 +116,7 @@
       /* Cursor on hover */
     }
 
-    .hs {
-      background-color: #4654e1;
-      width: 300px;
-      height: 50%;
-      border-radius: 5px;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      z-index: 1000;
-      position: absolute;
-      top: 0px;
-      right: 5px;
-    }
-
-    .hs input {
-      width: 50%;
-      margin-bottom: 80px;
-      margin-left: 80px;
-      margin-right: 50%;
-    }
-    .hs_title {
-      position: relative;
-
-    } 
-
-    .hs a {
-        margin-left: 90px;
-    }
-
+ 
 
 
 
@@ -225,6 +198,66 @@
         line-height:36px;
       
     }
+
+    .contact-form {
+        position: fixed;
+        top: 10%;
+        right: -20%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 350px;
+        padding: 80px 40px;
+        background: rgba(0, 0, 0, 0.5);
+        overflow: auto;
+        z-index: 1000px;
+    }
+
+
+
+    .contact-form h1 {
+        margin: 0;
+        padding: 0 0 20px;
+        color: #fff;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .contact-form div {
+        margin: 0;
+        padding: 0;
+        font-weight: bold;
+        color: #fff;
+    }
+    .contact-form input {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .contact-form input[type=navn], .contact-form input[type=password], .contact-form input[type=file] {
+        border: none;
+        border-bottom: 1px solid #fff;
+        background: transparent;
+        outline: none;
+        height: 40px;
+        color: #fff;
+        font-size: 16px;
+    }
+    .contact-form input[type=submit] {
+        height: 30px;
+        color: #fff;
+        font-size: 15px;
+        background: red;
+        cursor: pointer;
+        border-radius: 25px;
+        border: none;
+        outline: none;
+        margin-top: 15%;
+    }
+    .contact-form a {
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: none;
+    }
   
   </style>
 
@@ -234,7 +267,7 @@
 
   <!-- Display the map and title with HTML division tags  -->
   <div id="map-title">Turstier i Trondheim</div>
-  <div id="map"></div> 
+  <!-- <div id="map"></div>  -->
 
   <div class="busstopp-slidecontainer">
     Avstand til busstopp
@@ -247,34 +280,48 @@
     <p><span id="parkering_span"></span> m</p>
   </div>
   
-  <div class="hs">
-    
-  <form id="form" role="search">
-    <div>
-      <input type="search" id="query" name="q" placeholder="Koordinater..." aria-label="Søk i sideinnhold">
-    </div>
 
-
-      <div>
-    <input type="submit" value="Legg til" style="background-color: blueviolet;"/>
-      </div>
-
-
-      <div>
-        <input type="file"
-        id="tur_files"
-        name="tur_files"
-        placeholder="PB"
-        required/>
-      </div>
-
-
-  
-      <a href="/users/logout">Logout</a>
-   
 
  
-  </form>
+
+ 
+  
+
+
+<div class="contact-form">
+           
+    <form id="form_login" action="/users/login" method="POST">
+    <h1 style="color:blueviolet;">Legg til en tur</h1>
+<div>
+    <input type="navn"
+    id="name"
+    name="name"
+    placeholder="Navn på tur"
+    required/>
+</div>
+
+<div>
+    <input type="password"
+    id="Beskrivelse"
+    name="Beskrivelse"
+    placeholder="Beskrivelse"
+    required/>
+</div>
+
+<div>
+    <input type="file"
+    id="files"
+    name="files"
+    placeholder="PB"
+    required/>
+</div>
+
+
+<div>
+    <input type="submit" value="Legg til" style="background-color: blueviolet;"/>
+</div>
+<a href="/users/login"> Logg ut</a>
+</form>
 </div>
 
 
@@ -334,6 +381,8 @@ for (i = 0; i < coll.length; i++) {
     } 
   });
 }
+
+
     
     
 //content.scrollHeigh
@@ -360,6 +409,10 @@ for (i = 0; i < coll.length; i++) {
 
     var slider = document.getElementById("myRange");
     var output = document.getElementById("demo");
+
+
+    
+
     // output.innerHTML = slider.value; // Display the default slider value
 
     // Update the current slider value (each time you drag the slider handle)
