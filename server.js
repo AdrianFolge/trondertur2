@@ -76,77 +76,8 @@ app.get('/users/login', checkAuthenticated, (req, res) =>{
 
 
 app.get('/users/index' ,checkNotAuthenticated, (req, res) =>{
-    res.render("index", { user: req.user.name, user_email: req.user.email, user_image: "/images/"+req.user.images, coords: req.user.coords_images}, 
-    console.log(req.user.coords_images),
-    pool.query(
-        `SELECT * FROM users WHERE email = $1`, [req.user.email], (err, results) =>{
-            if(err){
-                throw err;
-            }
-
-            
-    if(req.query.q == undefined) {
-        console.log("INGENTING");
-    }
-
-    
-    else{
-        let lengde = req.user.coords_images.length;
-        console.log(req.user.user_coords)
-        pool.query(
-            `UPDATE users SET coords_images[$3]
-            = $2 
-            WHERE email=$1;`, [req.user.email,req.query.q, lengde+1],(err, results)=>{
-                if (err){
-                    throw err;
-                }
-               
-                            //req.flash(`success_msg`, "You are now registered. Please log in");
-                            //res.redirect("/users/index");
-                            //req.query.tur_files, 
-                        }
-                    );
-
-    
-        pool.query(
-            `UPDATE users SET coords_images[$3]
-            = $2 
-            WHERE email=$1;`, [req.user.email,req.query.tur_files, lengde+2],(err, results)=>{
-                if (err){
-                    throw err;
-                }
-                
-                                        //req.flash(`success_msg`, "You are now registered. Please log in");
-                                        //res.redirect("/users/index");
-                                        //req.query.tur_files, 
-                        }
-                    );
-
-       // pool.query(
-       //     `Select genTrip from users 
-       //     where name = 'admin';`,(err, results)=>{
-       //         if (err){
-       //             throw err;
-       //         }
-       //         console.log("skjer");
-       //         console.log(results);
-
-//            });
-            
-        
-
-                    
-
-    }
-           
-
-        }
-    )
-    );
-    
-
-    
-});
+    res.render("index", { user: req.user.name, user_email: req.user.email, user_image: "/images/"+req.user.images, coords: req.user.coords_images}
+)});
 
 app.get("/users/logout", (req, res) => {
     req.logOut();
@@ -226,10 +157,55 @@ app.post("/users/login", passport.authenticate('local', {
     failureFlash: true
 }));
 
-app.post('/users/index',upload.single("tur_files") ,async (req, res) =>{ 
+app.post('/users/index',upload.single("tur_files") ,checkNotAuthenticated, (req, res) =>{
+  
+    pool.query(
+        `SELECT * FROM users WHERE email = $1`, [req.user.email], (err, results) =>{
+            if(err){
+                throw err;
+            }
+        });
+
+            
+    if(req.body.q == undefined) {
+        console.log("INGENTING");
+        res.redirect("/users/index");
+    }
+
+    
+    else{
+        console.log(req.user.coords_images);
+        let lengde = req.user.coords_images.length;
+    
+        pool.query(
+            
+            `UPDATE users SET coords_images[$3]
+            = $2 
+            WHERE email=$1;`, [req.user.email,req.body.q, lengde+1],(err, results)=>{
+                if (err){
+                    throw err;
+                }
+               
+                            //req.flash(`success_msg`, "You are now registered. Please log in");
+                            //res.redirect("/users/index");
+                            //req.query.tur_files, 
+                        }
+                    );
+
+       
+        pool.query(
+            `UPDATE users SET coords_images[$3]
+            = $2 
+            WHERE email=$1;`, [req.user.email,req.body.tur_files, lengde+2],(err, results)=>{
+                if (err){
+                    throw err;
+                }
+            });
+        res.redirect("/users/index");            
+            
+}});
 
 
-});
 
 function checkAuthenticated(req, res, next){
     if (req.isAuthenticated()){
@@ -245,7 +221,7 @@ function checkNotAuthenticated(req, res, next){
     res.redirect("/users/login");
 }
 
-app.get("/upload", (req,res) => {
+app.get("/upload", checkNotAuthenticated, (req,res) => {
     res.render("upload");
 });
 
